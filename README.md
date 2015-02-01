@@ -27,6 +27,13 @@ following signature:
 
     def get_first_element(exception, *args, **kwargs):
 
+## Running tests
+
+The tests use [pytest](http://pytest.org/latest/). To run the tests without
+installing anything, execute:
+
+    $ python runtests.py
+
 ## TODO
 
 Complete the test suite.
