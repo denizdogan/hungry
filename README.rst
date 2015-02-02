@@ -19,7 +19,7 @@ Example usage
 
 Eat all errors and return `None` if one was raised:
 
-::
+.. code-block:: python
 
     @hungry.eat()
     def foo():
@@ -27,7 +27,7 @@ Eat all errors and return `None` if one was raised:
 
 Eat ``ValueError`` exceptions and return 0 if it was raised:
 
-::
+.. code-block:: python
 
     @hungry.eat(ValueError, error_value=0)
     def foo():
@@ -36,7 +36,7 @@ Eat ``ValueError`` exceptions and return 0 if it was raised:
 Eat ``IndexError`` and ``ValueError`` and fall back to function
 ``get_first_element`` if one of them is raised:
 
-::
+.. code-block:: python
 
     @hungry.eat(IndexError, ValueError, error_handler=bar)
     def foo():
@@ -47,7 +47,7 @@ argument, followed by all the other arguments and keyword arguments in the
 decorated function. This means that ``bar`` would have e.g. the following
 signature:
 
-::
+.. code-block:: python
 
     def bar(ex, *args, **kwargs):
         ...
