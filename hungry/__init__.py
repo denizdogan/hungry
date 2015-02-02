@@ -1,3 +1,6 @@
+__version__ = '0.0.2'
+
+
 def eat(*ex, **kwargs):
     error_handler = kwargs.get('error_handler', None)
     error_value = kwargs.get('error_value', None)
