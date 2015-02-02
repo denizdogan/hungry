@@ -1,6 +1,9 @@
 hungry
 ======
 
+.. image:: https://travis-ci.org/denizdogan/hungry.svg?branch=master
+    :target: https://travis-ci.org/denizdogan/hungry
+
 Python library for easily “eating” exceptions in functions. Eating can mean
 either returning a default value or calling another function.
 
