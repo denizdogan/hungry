@@ -19,14 +19,18 @@ def get_long_description():
 class PyTest(TestCommand):
     def finalize_options(self):
         TestCommand.finalize_options(self)
-        self.test_args = ['--cov=hungry']
+        self.test_args = [
+            '--cov', 'hungry',
+            '--cov-report', 'term-missing', 'test',
+            '--pep8',
+        ]
         self.test_suite = True
 
     def run_tests(self):
         import pytest
 
-        errcode = pytest.main(self.test_args)
-        sys.exit(errcode)
+        errno = pytest.main(self.test_args)
+        sys.exit(errno)
 
 
 setup(
@@ -50,4 +54,5 @@ setup(
     ],
     install_requires=get_requirements(),
     tests_require=get_requirements('-dev'),
+    cmdclass={'test': PyTest},
 )
