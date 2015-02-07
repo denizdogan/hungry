@@ -20,4 +20,5 @@ def test_catch_one_exception():
     foo([1])
 
     # ...but not ValueError
-    foo(['foo'])
+    with pytest.raises(ValueError):
+        f([1, 'foo'])
