@@ -4,7 +4,7 @@ hungry
 .. image:: https://travis-ci.org/denizdogan/hungry.svg?branch=master
     :target: https://travis-ci.org/denizdogan/hungry
 
-Python library for easily “eating” exceptions in functions. Eating can mean
+Python library for easily "eating" exceptions in functions. Eating can mean
 either returning a default value or calling another function.
 
 Introduction
@@ -12,12 +12,12 @@ Introduction
 
 This library is basically just a function, namely ``hungry.eat``. Initially, I
 wrote it for a document parser in which there was a lot of exception handling
-logic for stuff I didn’t really care particularly much about.
+logic for stuff I didn't really care particularly much about.
 
 Example usage
 -------------
 
-Eat all errors and return `None` if one was raised:
+Eat all exceptions and return `None` if one was raised:
 
 .. code-block:: python
 
@@ -25,7 +25,7 @@ Eat all errors and return `None` if one was raised:
     def foo():
         ...
 
-Eat ``ValueError`` exceptions and return 0 if it was raised:
+Eat ``ValueError`` exceptions and return 0 if one was raised:
 
 .. code-block:: python
 
@@ -34,7 +34,7 @@ Eat ``ValueError`` exceptions and return 0 if it was raised:
         ...
 
 Eat ``IndexError`` and ``ValueError`` and fall back to function
-``get_first_element`` if one of them is raised:
+``bar`` if one of them is raised:
 
 .. code-block:: python
 
@@ -52,7 +52,15 @@ signature:
     def bar(ex, *args, **kwargs):
         ...
 
+Notes
+-----
+
+This library will *not* catch exceptions and continue executing the
+following code. Whenever it eats an exception, it immediately returns
+error_value or calls error_handler.
+
 TODO
 ----
 
 Complete the test suite.
+
