@@ -21,7 +21,8 @@ def echo_handler(ex, *args, **kwargs):
     """
     Example error handler which echoes the exception and the arguments.
     """
-    return '%s/%s/%s' % (ex.message, ','.join(['%s' % arg for arg in args]), kwargs)
+    argstring = ','.join(['%s' % arg for arg in args])
+    return '%s/%s/%s' % (ex.message, argstring, kwargs)
 
 
 @eat(NameError, error_handler=echo_handler)
