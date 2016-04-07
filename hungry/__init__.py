@@ -17,18 +17,14 @@ def eat(*ex, **kwargs):
                     return error_handler(e, *args, **kw)
                 return error_value
 
-            # catch all exceptions
-            if ex == ():
-                try:
-                    return func(*args, **kw)
-                except Exception as e:
-                    return caught_it(e)
-            # catch only exceptions in `ex`
-            else:
-                try:
-                    return func(*args, **kw)
-                except ex as e:
-                    return caught_it(e)
+            # default to catching any exception
+            exceptions = ex or Exception
+
+            # catch any exception in `exceptions`
+            try:
+                return func(*args, **kw)
+            except exceptions as e:
+                return caught_it(e)
 
         return wrapper
 
